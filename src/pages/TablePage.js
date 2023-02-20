@@ -1,4 +1,4 @@
-import Table from "../components/Table";
+import SortableTable from "../components/Table";
 
 function TablePage() {
     const data = [
@@ -6,12 +6,13 @@ function TablePage() {
         { name: 'Apple', color: 'bg-red-500', score: 3},
         { name: 'Banana', color: 'bg-yellow-500', score: 1},
         { name: 'Lime', color: 'bg-green-500', score: 4}
-    ]
+    ];
 
     const config = [
         {
             label: 'Name',
-            render: (fruit) => fruit.name
+            render: (fruit) => fruit.name,
+            sortValue: (fruit) => fruit.name
         },
         {
             label: 'Color',
@@ -19,7 +20,8 @@ function TablePage() {
         },
         {
             label: 'Score',
-            render:(fruit) => fruit.score
+            render:(fruit) => fruit.score,
+            sortValue: (fruit) => fruit.score
         }
     ]
 
@@ -27,9 +29,11 @@ function TablePage() {
         return fruit.name;
     };
 
-    return <div>
-        <Table data={data} config={config} keyFn={keyFn}/>
-    </div>
+    return (
+        <div>
+            <SortableTable data={data} config={config} keyFn={keyFn}/>
+        </div>
+    )
 }
 
 export default TablePage
