@@ -9,8 +9,8 @@ function SortableTable(props) {
     }
 
     return {
-      ...column,
-      header: () => <th>{column.label} IS SORTABLE</th>,
+        ...column,
+        header: () => <th>{column.label} IS SORTABLE</th>,
     };
   });
 
